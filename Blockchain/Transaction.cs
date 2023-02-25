@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace Blockchain;
 
@@ -20,7 +21,7 @@ public class Transaction
     {
         using HashAlgorithm algorithm = SHA256.Create();
 
-        string contains = string.Concat(Amount, Payer, Payee);
-        return algorithm.ComputeHash(Encoding.UTF8.GetBytes(contains));
+        string jsonString = JsonSerializer.Serialize(this);
+        return algorithm.ComputeHash(Encoding.UTF8.GetBytes(jsonString));
     }
 }

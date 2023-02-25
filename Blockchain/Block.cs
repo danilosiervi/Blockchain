@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace Blockchain;
 
@@ -21,8 +22,8 @@ public class Block
     {
         using HashAlgorithm algorithm = SHA256.Create();
 
-        string contains = string.Concat(PrevHash, Transaction.Hash());
-        return algorithm.ComputeHash(Encoding.UTF8.GetBytes(contains));
+        string jsonString = JsonSerializer.Serialize(this);
+        return algorithm.ComputeHash(Encoding.UTF8.GetBytes(jsonString));
     }
 
     public int nounce = new Random().Next(int.MaxValue);

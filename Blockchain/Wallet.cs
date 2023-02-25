@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace Blockchain;
@@ -30,7 +29,6 @@ public class Wallet
     public void SendMoney(double amount, string payeePublicKey)
     {
         var transaction = new Transaction(amount, GetPublicKey(), payeePublicKey);
-
         var signature = _rsa.SignData(transaction.Hash(), nameof(SHA256));
 
         Chain.GetChain().AddBlock(transaction, _publicKey, signature);
