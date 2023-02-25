@@ -48,7 +48,7 @@ public class Chain
         {
             if (solution.CompareTo(nounce) > 0)
             {
-                Console.WriteLine($"solved: {solution}\n");
+                Console.WriteLine($"solved: {solution}");
                 return;
             }
 
@@ -56,7 +56,7 @@ public class Chain
         }
     }
 
-    public void ExibirBlockchain()
+    public void ViewBlockchain()
     {
         Console.WriteLine("Blockchain [");
         Blockchain.ForEach(block => Console.WriteLine("    Block {\n" + block + "    },\n"));

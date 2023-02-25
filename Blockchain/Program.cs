@@ -13,6 +13,6 @@ class Program
         marina.SendMoney(5, satoshi.GetPublicKey());
         satoshi.SendMoney(10, marina.GetPublicKey());
 
-        Chain.GetChain().ExibirBlockchain();
+        Chain.GetChain().ViewBlockchain();
     }
 }
