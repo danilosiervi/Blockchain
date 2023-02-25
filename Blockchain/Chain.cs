@@ -40,18 +40,17 @@ public class Chain
         }
     }
 
-    public static int Mine(int nounce)
+    public static void Mine(int nounce)
     {
         int solution = 1;
         Console.WriteLine("mining...");
 
         while(true)
         {
-            var secret = new Random().Next(nounce);
-
-            if (secret.ToString().Take()
+            if (solution.CompareTo(nounce) > 0)
             {
-
+                Console.WriteLine($"solved: {solution}");
+                return;
             }
 
             solution += 1;

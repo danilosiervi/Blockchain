@@ -25,5 +25,5 @@ public class Block
         return algorithm.ComputeHash(Encoding.UTF8.GetBytes(contains));
     }
 
-    public int nounce = new Random().Next(999999) * 999999;
+    public int nounce = new Random().Next(int.MaxValue);
 }
