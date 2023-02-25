@@ -59,8 +59,8 @@ public class Chain
 
     public void ExibirBlockchain()
     {
-        Console.WriteLine("Blockchain {");
-        Blockchain.ForEach(block => Console.WriteLine(block));
-        Console.WriteLine("}");
+        Console.WriteLine("Blockchain [");
+        Blockchain.ForEach(block => Console.WriteLine("    Block {\n" + block + "    },\n"));
+        Console.WriteLine("]");
     }
 }

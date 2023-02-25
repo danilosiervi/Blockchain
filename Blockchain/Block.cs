@@ -31,11 +31,15 @@ public class Block
     {
         if (PrevHash == null)
         {
-            return $"    Hash: {Encoding.UTF8.GetString(Hash())} \n    PrevHash: null" +
-                $"\n    Transaction: {Encoding.UTF8.GetString(Transaction.Hash())} \n    Time: {Time}";
+            return $"        Hash: {BitConverter.ToString(Hash()).Replace("-", "")}\n" +
+                $"        PrevHash: null\n" +
+                $"        Transaction: {BitConverter.ToString(Transaction.Hash()).Replace("-", "")}\n" +
+                $"        Time: {Time}\n";
         }
 
-        return $"    Hash: {Encoding.UTF8.GetString(Hash())} \n    PrevHash: {Encoding.UTF8.GetString(PrevHash)}" +
-            $"\n    Transaction: {Encoding.UTF8.GetString(Transaction.Hash())} \n    Time: {Time}";
+        return $"        Hash: {BitConverter.ToString(Hash()).Replace("-", "")}\n" +
+            $"        PrevHash: {BitConverter.ToString(PrevHash).Replace("-", "")}\n" +
+            $"        Transaction: {BitConverter.ToString(Transaction.Hash()).Replace("-", "")}\n" +
+            $"        Time: {Time}\n";
     }
 }
