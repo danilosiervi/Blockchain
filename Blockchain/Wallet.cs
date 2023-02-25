@@ -31,7 +31,7 @@ public class Wallet
     {
         var transaction = new Transaction(amount, GetPublicKey(), payeePublicKey);
 
-        var signature = _rsa.SignData(Encoding.UTF8.GetBytes(transaction.ToString()), nameof(SHA256));
+        var signature = _rsa.SignData(transaction.Hash(), nameof(SHA256));
 
         Chain.GetChain().AddBlock(transaction, _publicKey, signature);
     }

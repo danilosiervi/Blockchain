@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System.Security.Cryptography;
+using System.Text;
 
 namespace Blockchain;
 
@@ -15,8 +16,11 @@ public class Transaction
         Payee = payee;
     }
 
-    public override string ToString()
+    public byte[] Hash()
     {
-        return string.Concat(Amount, Payer, Payee);
+        using HashAlgorithm algorithm = SHA256.Create();
+
+        string contains = string.Concat(Amount, Payer, Payee);
+        return algorithm.ComputeHash(Encoding.UTF8.GetBytes(contains));
     }
 }

@@ -31,7 +31,7 @@ public class Chain
         using RSACryptoServiceProvider rsa = new(2048);
         rsa.ImportParameters(senderPublicKey);
 
-        if (rsa.VerifyData(Encoding.UTF8.GetBytes(transaction.ToString()), nameof(SHA256), signature))
+        if (rsa.VerifyData(transaction.Hash(), nameof(SHA256), signature))
         {
             var newBlock = new Block(GetLastBlock().Hash(), transaction);
 
@@ -49,11 +49,18 @@ public class Chain
         {
             if (solution.CompareTo(nounce) > 0)
             {
-                Console.WriteLine($"solved: {solution}");
+                Console.WriteLine($"solved: {solution}\n");
                 return;
             }
 
             solution += 1;
         }
+    }
+
+    public void ExibirBlockchain()
+    {
+        Console.WriteLine("Blockchain {");
+        Blockchain.ForEach(block => Console.WriteLine(block));
+        Console.WriteLine("}");
     }
 }

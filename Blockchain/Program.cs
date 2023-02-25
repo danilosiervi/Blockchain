@@ -12,5 +12,7 @@ class Program
         danilo.SendMoney(20, marina.GetPublicKey());
         marina.SendMoney(5, satoshi.GetPublicKey());
         satoshi.SendMoney(10, marina.GetPublicKey());
+
+        Chain.GetChain().ExibirBlockchain();
     }
 }
