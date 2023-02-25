@@ -48,7 +48,7 @@ public class Chain
         {
             if (solution.CompareTo(nounce) > 0)
             {
-                Console.WriteLine($"solved: {solution}");
+                Console.WriteLine($"solved: {solution}\n");
                 return;
             }
 
