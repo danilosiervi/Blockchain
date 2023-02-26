@@ -34,19 +34,19 @@ public class Chain
         {
             var newBlock = new Block(GetLastBlock().Hash(), transaction);
 
-            Mine(newBlock.nounce);
+            Mine(newBlock.nonce);
             Blockchain.Add(newBlock);
         }
     }
 
-    public static void Mine(int nounce)
+    public static void Mine(int nonce)
     {
         int solution = 1;
         Console.WriteLine("mining...");
 
         while(true)
         {
-            if (solution.CompareTo(nounce) > 0)
+            if (solution.CompareTo(nonce) < 0)
             {
                 Console.WriteLine($"solved: {solution}\n");
                 return;

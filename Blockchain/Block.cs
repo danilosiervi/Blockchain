@@ -26,7 +26,7 @@ public class Block
         return algorithm.ComputeHash(Encoding.UTF8.GetBytes(jsonString));
     }
 
-    public int nounce = new Random().Next(int.MaxValue);
+    public int nonce = new Random().Next(int.MaxValue);
 
     public override string ToString()
     {

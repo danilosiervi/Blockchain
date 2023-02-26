@@ -1,5 +1,4 @@
 ﻿using System.Security.Cryptography;
-using System.Xml.Serialization;
 
 namespace Blockchain;
 
@@ -18,12 +17,7 @@ public class Wallet
 
     public string GetPublicKey()
     {
-        var sw = new StringWriter();
-        var xs = new XmlSerializer(typeof(RSAParameters));
-
-        xs.Serialize(sw, _publicKey);
-
-        return sw.ToString();
+        return BitConverter.ToString(_publicKey.Modulus) + BitConverter.ToString(_publicKey.Exponent);
     }
 
     public void SendMoney(double amount, string payeePublicKey)
