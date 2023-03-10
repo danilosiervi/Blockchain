@@ -40,7 +40,7 @@ public class Chain
 
         while(true)
         {
-            if (solution.CompareTo(nonce) < 0)
+            if (solution.CompareTo(nonce) > 0)
             {
                 Console.WriteLine($"solved: {solution}\n");
                 return;
