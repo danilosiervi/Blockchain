@@ -6,9 +6,9 @@ namespace Blockchain;
 
 public class Transaction
 {
-    public double Amount { get; set; }
-    public string Payer { get; set; }
-    public string Payee { get; set; }
+    public double Amount { get; }
+    public string Payer { get; }
+    public string Payee { get; }
 
     public Transaction(double amount, string payer, string payee)
     {

@@ -11,19 +11,13 @@ public class Chain
         Blockchain = new List<Block> { genesis };
     }
 
-    private static readonly Chain _instance = new Chain();
+    private static readonly Chain _instance = new();
 
-    public static Chain GetChain()
-    {
-        return _instance;
-    }
+    public static Chain GetChain() => _instance;
 
     public List<Block> Blockchain;
 
-    public Block GetLastBlock()
-    {
-        return Blockchain[^1];
-    }
+    public Block GetLastBlock() => Blockchain[^1];
 
     public void AddBlock(Transaction transaction, RSAParameters senderPublicKey, byte[] signature)
     {
